@@ -10,7 +10,7 @@ def index(request):
 
 def tweet_list(request):
     tweets = Tweet.objects.all().order_by('-created_at')
-    return render(request, 'tweets_list.html', {'Tweets -- ': tweets})
+    return render(request, 'tweets_list.html', {'tweets': tweets})
 
 def create_tweet(request):
     if request.method == 'POST':
@@ -23,7 +23,7 @@ def create_tweet(request):
     else:
         form = TweetForms()
 
-    return render(request, 'create_tweets.html', {'form -- ': form})
+    return render(request, 'create_tweets.html', {'form': form})
 
 def edit_tweet(request, t_id):
     tweet = get_object_or_404(Tweet, pk=t_id, user=request.user)    # this tweet is the model and pk is primary key and we will allow user to edit only if it's his own tweet
@@ -36,11 +36,11 @@ def edit_tweet(request, t_id):
             return redirect('tweet_list')
     else:
         form = TweetForms(instance=tweet)
-    return render(request, 'create_tweets.html', {'form -- ': form})
+    return render(request, 'create_tweets.html', {'form': form})
 
 def delete_tweet(request, t_id):
     tweet = get_object_or_404(Tweet, pk=t_id, user=request.user)
-    if request.metho== 'POST':
+    if request.method == 'POST':
         tweet.delete()
         return redirect('tweet_list')
-    return render(request, 'tweet_confirm_delete.html', {'tweet -- ': tweet})
+    return render(request, 'tweet_confirm_delete.html', {'tweet': tweet})
