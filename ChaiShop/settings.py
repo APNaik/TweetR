@@ -40,7 +40,18 @@ INSTALLED_APPS = [
     'Tweet',
 ]
 
+# Third-party apps added for API + CORS
+INSTALLED_APPS += [
+    'rest_framework',
+    'rest_framework_simplejwt',
+    'corsheaders',
+]
+
+# Enable token blacklist app for logout (SimpleJWT)
+INSTALLED_APPS += ['rest_framework_simplejwt.token_blacklist']
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -131,3 +142,32 @@ STATIC_FILES_DIR = [os.path.join(BASE_DIR, 'static')]
 LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = '/Tweet/'
 LOGOUT_REDIRECT_URL = '/Tweet'
+
+# REST framework configuration (use JWT for auth)
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ),
+}
+
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'AUTH_HEADER_TYPES': ('Bearer',),
+}
+
+# SimpleJWT settings can be customized here if needed (using defaults for now)
+
+# CORS - during development allow Vite dev server
+# For production, restrict origins appropriately.
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:5173',
+]
+CORS_ALLOW_CREDENTIALS = True
