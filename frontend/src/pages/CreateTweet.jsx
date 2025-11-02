@@ -28,17 +28,23 @@ export default function CreateTweet() {
   }
 
   return (
-    <main>
-      <h2>Create Tweet</h2>
-      <form onSubmit={submit}>
-        <div>
-          <textarea value={text} onChange={e => setText(e.target.value)} placeholder={"What's happening?"}></textarea>
-        </div>
-        <div>
-          <input type='file' accept='image/*' onChange={e => setPhoto(e.target.files[0])} />
-        </div>
-        <button type='submit'>Post</button>
-      </form>
+    <main className="container">
+      <div className="card">
+        <h2>Create Tweet</h2>
+        <form onSubmit={submit}>
+          <div className="form-row">
+            <label>Text</label>
+            <textarea value={text} onChange={e => setText(e.target.value)} placeholder={"What's happening?"}></textarea>
+          </div>
+          <div className="form-row">
+            <label>Photo (optional)</label>
+            <input type='file' accept='image/*' onChange={e => setPhoto(e.target.files[0])} />
+          </div>
+          <div className="form-row">
+            <button className="btn" type='submit'>Post</button>
+          </div>
+        </form>
+      </div>
     </main>
   )
 }

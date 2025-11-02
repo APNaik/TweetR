@@ -6,6 +6,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import TweetList from './pages/TweetList'
 import CreateTweet from './pages/CreateTweet'
+import './index.css'
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>

@@ -18,20 +18,27 @@ export default function App() {
   }
 
   return (
-    <header style={{padding: 20}}>
-      <nav>
-        <Link to='/'>Home</Link> | <Link to='/create'>Create</Link> |
-        {user ? (
-          <>
-            <span style={{marginLeft:8}}>Hi, {user.username}</span>
-            <button style={{marginLeft:8}} onClick={doLogout}>Logout</button>
-          </>
-        ) : (
-          <>
-            <Link to='/register'>Register</Link> | <Link to='/login'>Login</Link>
-          </>
-        )}
-      </nav>
+    <header className="app-header">
+      <div className="container">
+        <div className="nav">
+          <div className="center">
+            <Link to='/' className="logo">TweeTR</Link>
+            <Link to='/create' className="small">Create</Link>
+          </div>
+          <div className="spacer" />
+          {user ? (
+            <div className="center">
+              <span className="small">Hi, <strong>{user.username}</strong></span>
+              <button className="btn" style={{marginLeft:12}} onClick={doLogout}>Logout</button>
+            </div>
+          ) : (
+            <div className="center">
+              <Link to='/register' className="small">Register</Link>
+              <Link to='/login' style={{marginLeft:8}} className="small">Login</Link>
+            </div>
+          )}
+        </div>
+      </div>
     </header>
   )
 }

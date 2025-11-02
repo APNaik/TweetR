@@ -1,0 +1,52 @@
+:root{
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --accent: #4f46e5;
+  --muted: #6b7280;
+  --danger: #ef4444;
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: #111827;
+  -webkit-font-smoothing:antialiased;
+}
+.container{
+  max-width:900px;
+  margin:24px auto;
+  padding:16px;
+}
+header.app-header{
+  background: linear-gradient(90deg, rgba(79,70,229,0.08), rgba(99,102,241,0.04));
+  border-bottom:1px solid rgba(15,23,42,0.04);
+}
+.nav{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+.nav a{color:var(--accent);text-decoration:none;font-weight:600}
+.nav .spacer{flex:1}
+.btn{
+  background:var(--accent);
+  color:white;border:0;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:600
+}
+.btn.secondary{background:#e6e9ff;color:var(--accent)}
+.card{
+  background:var(--card);border-radius:12px;padding:16px;margin:12px 0;box-shadow:0 6px 18px rgba(16,24,40,0.06);
+}
+.form-row{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+label{font-size:13px;color:var(--muted)}
+input[type='text'], input[type='password'], textarea{padding:10px;border-radius:8px;border:1px solid #e6e9ef;background:#fff}
+textarea{min-height:100px;resize:vertical}
+.tweet{display:flex;gap:12px;align-items:flex-start}
+.tweet img.avatar{width:44px;height:44px;border-radius:50%;object-fit:cover}
+.tweet .body{flex:1}
+.tweet .meta{color:var(--muted);font-size:13px;margin-bottom:6px}
+.tweet img.photo{max-width:100%;border-radius:8px;margin-top:8px}
+.center{display:flex;align-items:center;gap:8px}
+.small{font-size:13px;color:var(--muted)}
+.error{color:var(--danger);font-weight:600}
