@@ -28,9 +28,10 @@ export default function CreateTweet() {
   }
 
   return (
-    <main className="container">
-      <div className="card">
-        <h2>Create Tweet</h2>
+    <main className="main-content">
+      <div className="container">
+        <div className="card">
+          <h2>Create Tweet</h2>
         <form onSubmit={submit}>
           <div className="form-row">
             <label>Text</label>
@@ -44,6 +45,7 @@ export default function CreateTweet() {
             <button className="btn" type='submit'>Post</button>
           </div>
         </form>
+        </div>
       </div>
     </main>
   )

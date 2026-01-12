@@ -20,9 +20,10 @@ export default function Login() {
   }
 
   return (
-    <main className="container">
-      <div className="card">
-        <h2>Login</h2>
+    <main className="main-content">
+      <div className="container">
+        <div className="card">
+          <h2>Login</h2>
         <form onSubmit={submit}>
           <div className="form-row">
             <label>Username</label>
@@ -36,6 +37,7 @@ export default function Login() {
             <button className="btn" type='submit'>Login</button>
           </div>
         </form>
+        </div>
       </div>
     </main>
   )

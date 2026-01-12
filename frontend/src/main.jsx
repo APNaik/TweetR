@@ -6,18 +6,24 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import TweetList from './pages/TweetList'
 import CreateTweet from './pages/CreateTweet'
+import OnlineUsers from './components/OnlineUsers'
 import './index.css'
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
-      <Routes>
-        <Route path='/' element={<TweetList />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/create' element={<CreateTweet />} />
-      </Routes>
+      <div className="app-layout">
+        <App />
+        <div className="content-wrapper">
+          <Routes>
+            <Route path='/' element={<TweetList />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/create' element={<CreateTweet />} />
+          </Routes>
+          <OnlineUsers />
+        </div>
+      </div>
     </BrowserRouter>
   </React.StrictMode>
 )

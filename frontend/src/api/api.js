@@ -70,4 +70,19 @@ export async function createTweet(data) {
   return res.data
 }
 
+export async function likeTweet(tweetId) {
+  const res = await api.post(`tweets/${tweetId}/like/`)
+  return res.data
+}
+
+export async function unlikeTweet(tweetId) {
+  const res = await api.post(`tweets/${tweetId}/unlike/`)
+  return res.data
+}
+
+export async function fetchOnlineUsers() {
+  const res = await api.get('online-users/')
+  return res.data
+}
+
 export default api

@@ -1,10 +1,11 @@
 from rest_framework import routers
-from .views import TweetViewSet
+from .views import TweetViewSet, OnlineUsersViewSet
 from django.urls import path, include
 from .auth import RegisterView, LogoutView, UserView
 
 router = routers.DefaultRouter()
 router.register(r'tweets', TweetViewSet, basename='tweet')
+router.register(r'online-users', OnlineUsersViewSet, basename='online-users')
 
 urlpatterns = [
     path('', include(router.urls)),
