@@ -71,8 +71,8 @@ jobs:
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          package: 'TweetR'
           app-name: 'tweetr'
           slot-name: 'Production'
-
+          package: '.'
           
+
